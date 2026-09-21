@@ -1,0 +1,30 @@
+[[demo-spring-boot-autoconfigure]]
+= Spring Boot Autoconfigure Demo
+
+This directory contains a minimal Spring Boot application that uses generic Spring Boot auto-configuration with Spring
+Data Aerospike. The module depends on Spring Boot's `spring-boot-autoconfigure` API and Spring Data Aerospike, not the
+`spring-boot-starter-data-aerospike` convenience starter.
+
+The application does not declare an `AerospikeConfiguration` class or `@EnableAerospikeRepositories`. Instead,
+`SpringDataAerospikeDemoAutoConfiguration` is registered through Spring Boot's `AutoConfiguration.imports` metadata and
+creates the Aerospike client, Spring Data infrastructure, and repository scanning from application properties.
+
+== Prerequisites
+
+- JDK 17
+- Docker installed and running (optional)
+
+== Key Files
+
+- `SpringBootAutoconfigureAerospikeDemoApplication` is a regular `@SpringBootApplication`.
+- `SpringDataAerospikeDemoAutoConfiguration` is the module-local Spring Boot auto-configuration.
+- `AutoconfiguredMovieDocument` is the mapped Aerospike document.
+- `AutoconfiguredMovieRepository` is discovered by repository auto-configuration.
+- `application.properties` supplies `spring.aerospike.hosts` and `spring.data.aerospike.namespace`.
+
+== Tests
+
+:base_path: ../../../../../../..
+:tests_path: src/test/java/com/demo
+
+To see tests go to link:{base_path}/{tests_path}/springbootautoconfigure[Spring Boot autoconfigure tests].

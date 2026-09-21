@@ -18,6 +18,7 @@
     <description>Demo project for Spring Data Aerospike</description>
     <modules>
         <module>examples</module>
+        <module>examples-spring-boot-autoconfigure</module>
         <module>examples-reactive</module>
     </modules>
 

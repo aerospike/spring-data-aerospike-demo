@@ -1,0 +1,18 @@
+[[demo-mapping-metadata]]
+= Mapping Metadata Demo
+
+This directory demonstrates how Spring Data Aerospike writes and customizes type metadata.
+
+== What This Demo Covers
+
+- Disabling the class metadata bin with `spring.data.aerospike.classKey=""`.
+- Using `@TypeAlias` so metadata stores a stable alias instead of a Java class name.
+- Configuring `AerospikeDataSettings` to use a custom type metadata bin.
+- Registering symmetrical value-object converters and querying with the converted value-object type.
+- Cross-linking to the whole-record `AerospikeWriteData`/`AerospikeReadData` converter example for advanced cases.
+
+== Guide
+
+:base_path: ../../../../../../..
+
+link:{base_path}/asciidoc/mapping-metadata.adoc[Mapping metadata]

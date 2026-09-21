@@ -1,0 +1,16 @@
+[[tests-reactive-mapping-metadata]]
+= Reactive Mapping Metadata Tests
+
+This directory contains tests for customizing Spring Data Aerospike mapping metadata in the reactive programming model.
+The tests verify raw metadata bins and repository reads/queries.
+
+== Prerequisites
+
+- JDK 17
+
+== Demo Application
+
+:base_path_reactive: ../../../../../../../..
+:demo_path_reactive: examples-reactive/src/main/java/com/demo/reactive
+
+To see demo application go to link:{base_path_reactive}/{demo_path_reactive}/mappingmetadata[Reactive Mapping Metadata Demo].
