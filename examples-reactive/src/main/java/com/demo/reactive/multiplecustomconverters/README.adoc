@@ -2,7 +2,8 @@
 = Reactive Multiple Custom Converters Demo
 
 This directory contains a reactive sample project demonstrating how to register multiple
-`AerospikeCustomConverters` beans with Spring Data Aerospike 6.0.0.
+`AerospikeCustomConverters` beans. The active Spring Data Aerospike version is configured in the root `pom.xml`;
+see the `Version Compatibility` section in the root README for the current target stack.
 
 == What Changed in Spring Data Aerospike 6.0.0
 

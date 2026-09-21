@@ -1,7 +1,16 @@
-= `spring-data-aerospike` setup and usage
+= Setup and Usage
 
 This repository contains sample projects for demonstration of setting up and usage of Spring Data Aerospike.
 It includes two modules: `examples` (imperative) and `examples-reactive` (reactive).
+
+== Version Compatibility
+
+This repository targets the Spring Data Aerospike version configured in the root link:pom.xml[`pom.xml`].
+At the time of this update the demo targets Spring Data Aerospike `6.3.x`, Spring Boot `4.1.x`,
+Aerospike Java Client `10.4.x`, Aerospike Reactor Client `10.5.x`, and Aerospike Server `6.1.x+`.
+
+Transactions require Aerospike Server `8.0+` and a transaction-enabled namespace. Expression-index examples, if
+enabled later, require Aerospike Server `8.1+`.
 
 == Prerequisites
 
@@ -16,6 +25,10 @@ It includes two modules: `examples` (imperative) and `examples-reactive` (reacti
 - link:asciidoc/composite-primary-key.adoc[Composite primary key]
 - link:asciidoc/optimistic-locking.adoc[Handling concurrent updates]
 - link:asciidoc/basic-error-handling.adoc[Basic error handling]
+- link:asciidoc/query-methods-and-custom-queries.adoc[Query methods, custom queries, projections and pagination]
+- link:asciidoc/template-operations.adoc[Template operations]
+- link:asciidoc/transactions.adoc[Transactions]
+- link:asciidoc/caching.adoc[Aerospike-backed Spring Cache]
 
 == Code Demos
 
@@ -27,5 +40,13 @@ In addition to the guides above, the following demos are available:
 - link:{examples_path}/batchread[Batch Read Operations]
 - link:{examples_path}/batchwrite[Batch Write Operations]
 - link:{examples_path}/simplecrudrest[Simple CRUD with REST API]
+- link:{examples_path}/querymethods[Query Methods, Custom Queries, Projections and Pagination]
+- link:{examples_path}/templateops[Template Operations]
+- link:{examples_path}/transactions[Transactions]
+- link:{examples_path}/caching[Aerospike-backed Spring Cache]
 
-Reactive variants of the demos are available under link:examples-reactive[`examples-reactive`] module.
+Reactive variants of most data demos are available under link:examples-reactive[`examples-reactive`] module, including:
+
+- link:{reactive_examples_path}/querymethods[Reactive Query Methods and Custom Queries]
+- link:{reactive_examples_path}/templateops[Reactive Template Operations]
+- link:{reactive_examples_path}/transactions[Reactive Transactions]

@@ -4,9 +4,6 @@
 == How to set up Spring Data Aerospike in a Spring Boot application for basic CRUD operations
 :toc:
 
-:spring-boot-version: 4.0.5
-:spring-data-aerospike-version: 6.0.0
-
 == Setting up the project
 
 In this section we'll cover setup of the project from the start.
@@ -18,7 +15,7 @@ In Spring Initializr you'll need to select:
 
 - Project: https://stackoverflow.com/a/13335439/688926[Maven] project
 - Language: Java
-- https://spring.io/projects/spring-boot[Spring Boot]: {spring-boot-version}
+- https://spring.io/projects/spring-boot[Spring Boot]: a version compatible with the Spring Data Aerospike used by this repository
 - Java: 17
 
 Press Generate button in the bottom of the page, and you'll get zip with initial project. Import project into your
@@ -38,8 +35,9 @@ can be checked for the version of `spring-data-aerospike` that is compatible wit
 Aerospike Server versions.
 ====
 
-In our case we are going to use `spring-data-aerospike` {spring-data-aerospike-version} as we have Spring Boot
-{spring-boot-version}.
+In this demo repository, the canonical Spring Data Aerospike version is the one configured in the root
+link:../pom.xml[`pom.xml`]. See the `Version Compatibility` section in the root link:../README.adoc[README] for the
+current target stack.
 
 .pom.xml
 [source,xml]

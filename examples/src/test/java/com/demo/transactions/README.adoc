@@ -1,0 +1,21 @@
+[[tests-transactions]]
+= Transactions Tests
+
+This directory contains tests for a sample project demonstrating Spring transaction integration with Spring Data Aerospike.
+
+== Prerequisites
+
+- JDK 17
+- Aerospike Server `8.0+` with transaction support for running transaction behavior tests
+
+== Guides
+
+:base_path: ../../../../../../..
+
+link:{base_path}/asciidoc/transactions.adoc[Transactions]
+
+== Demo Application
+
+:demo_path: examples/src/main/java/com/demo
+
+To see demo application go to link:{base_path}/{demo_path}/transactions[Transactions Demo].

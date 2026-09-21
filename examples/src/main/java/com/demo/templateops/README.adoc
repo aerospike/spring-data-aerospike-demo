@@ -1,0 +1,18 @@
+[[demo-template-operations]]
+= Template Operations Demo
+
+This directory demonstrates direct `AerospikeTemplate` usage. The active Spring Data Aerospike version is configured in
+the root `pom.xml`; see the `Version Compatibility` section in the root README for the current target stack.
+
+== What This Demo Covers
+
+- Query, count, exists, and projection template overloads.
+- Batch id reads and deletes.
+- Atomic bin mutations and partial updates.
+- Operation-specific `WritePolicy` usage.
+
+== Guide
+
+:base_path: ../../../../../../..
+
+link:{base_path}/asciidoc/template-operations.adoc[Template operations]

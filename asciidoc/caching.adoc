@@ -1,0 +1,21 @@
+[[guide-caching]]
+= Aerospike-backed Spring Cache
+
+This guide points to a demo that uses Spring Cache annotations backed by `AerospikeCacheManager`. The active Spring Data
+Aerospike version is configured in the root link:../pom.xml[`pom.xml`].
+
+== What Is Covered
+
+- Enabling Spring Cache with `@EnableCaching`.
+- Creating an `AerospikeCacheManager` with a dedicated cache set.
+- Reading through `@Cacheable`.
+- Updating cached values with `@CachePut`.
+- Evicting cached values with `@CacheEvict`.
+
+== Demo Application
+
+:demo_path: ../examples/src/main/java/com/demo
+:tests_path: ../examples/src/test/java/com/demo
+
+- link:{demo_path}/caching[Blocking cache demo]
+- link:{tests_path}/caching[Blocking cache tests]

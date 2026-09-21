@@ -2,7 +2,7 @@
 = Multiple Custom Converters Tests
 
 This directory contains tests verifying that multiple `AerospikeCustomConverters` beans are correctly
-aggregated and applied by Spring Data Aerospike 6.0.0.
+aggregated and applied by the Spring Data Aerospike version configured in the root `pom.xml`.
 
 Each test class exercises converters from a different bean to prove that all converter groups
 are picked up via `ObjectProvider.orderedStream()`.

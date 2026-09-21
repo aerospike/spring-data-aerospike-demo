@@ -1,0 +1,19 @@
+[[demo-query-methods]]
+= Query Methods, Custom Queries, Projections and Pagination Demo
+
+This directory demonstrates current Spring Data Aerospike repository query APIs. The active Spring Data Aerospike
+version is configured in the root `pom.xml`; see the `Version Compatibility` section in the root README for the current
+target stack.
+
+== What This Demo Covers
+
+- Derived query methods and id-plus-bin criteria with `QueryParam`.
+- Declared DSL queries with `@Query`.
+- Programmatic custom queries with `Query` and `Qualifier`.
+- DTO projections, sorting, `Page`, and `Slice`.
+
+== Guide
+
+:base_path: ../../../../../../..
+
+link:{base_path}/asciidoc/query-methods-and-custom-queries.adoc[Query methods, custom queries, projections and pagination]

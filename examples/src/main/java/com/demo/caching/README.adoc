@@ -1,0 +1,18 @@
+[[demo-caching]]
+= Aerospike-backed Spring Cache Demo
+
+This directory demonstrates Spring Cache annotations backed by `AerospikeCacheManager`. The active Spring Data
+Aerospike version is configured in the root `pom.xml`; see the `Version Compatibility` section in the root README for
+the current target stack.
+
+== What This Demo Covers
+
+- `@EnableCaching` with an Aerospike-backed `CacheManager`.
+- `@Cacheable`, `@CachePut`, and `@CacheEvict`.
+- A dedicated Aerospike set for cache entries.
+
+== Guide
+
+:base_path: ../../../../../../..
+
+link:{base_path}/asciidoc/caching.adoc[Aerospike-backed Spring Cache]
