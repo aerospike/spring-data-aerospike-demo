@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assumptions.assumeFalse;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
-// Transactions require Aerospike Server 8.0+ and a namespace with a properly configured roster
+// Transactions require Aerospike Server 8.0+ and a namespace with a properly configured roster.
 public class TransactionTests extends TransactionsAerospikeDemoApplicationTest {
 
     @Autowired
@@ -54,7 +54,6 @@ public class TransactionTests extends TransactionsAerospikeDemoApplicationTest {
     }
 
     private void assumeTransactionsSupported() {
-        // Transactions require Aerospike Server 8.0+ and a namespace with a properly configured roster
         assumeTrue(serverVersionSupport.isTxnSupported(), "Aerospike transactions require Server 8.0.0+");
     }
 
