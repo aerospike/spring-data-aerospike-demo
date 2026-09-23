@@ -3,9 +3,9 @@
 
 This directory contains a reactive sample project demonstrating Netty event loop configuration with Spring Data Aerospike.
 
-Since Spring Data Aerospike 6.0.0 (with Aerospike Java client 10.0.0), Netty event loops are always configured
-via the `eventLoops()` bean in `AerospikeDataConfigurationSupport`. This demo shows both the default behavior
-and how to override event loops with custom configurations in a reactive application.
+Current Spring Data Aerospike versions configure Netty event loops via the `eventLoops()` bean in
+`AerospikeDataConfigurationSupport`. This behavior was introduced in Spring Data Aerospike 6.0.0; the active demo
+version is configured in the root `pom.xml`.
 
 == Use Cases
 

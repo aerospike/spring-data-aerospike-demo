@@ -1,0 +1,20 @@
+[[tests-caching]]
+= Aerospike-backed Spring Cache Tests
+
+This directory contains tests for a sample project demonstrating Spring Cache annotations backed by Aerospike.
+
+== Prerequisites
+
+- JDK 17
+
+== Guides
+
+:base_path: ../../../../../../..
+
+link:{base_path}/asciidoc/caching.adoc[Aerospike-backed Spring Cache]
+
+== Demo Application
+
+:demo_path: examples/src/main/java/com/demo
+
+To see demo application go to link:{base_path}/{demo_path}/caching[Aerospike-backed Spring Cache Demo].

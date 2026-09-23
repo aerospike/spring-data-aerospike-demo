@@ -1,0 +1,20 @@
+[[tests-reactive-template-operations]]
+= Reactive Template Operations Tests
+
+This directory contains tests for a sample project demonstrating direct `ReactiveAerospikeTemplate` operations with Spring Data Aerospike reactively.
+
+== Prerequisites
+
+- JDK 17
+
+== Guides
+
+:base_path_reactive: ../../../../../../../..
+
+link:{base_path_reactive}/asciidoc/template-operations.adoc[Template Operations]
+
+== Demo Application
+
+:demo_path_reactive: examples-reactive/src/main/java/com/demo/reactive
+
+To see demo application go to link:{base_path_reactive}/{demo_path_reactive}/templateops[Reactive Template Operations Demo].

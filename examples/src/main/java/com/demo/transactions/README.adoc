@@ -1,0 +1,17 @@
+[[demo-transactions]]
+= Transactions Demo
+
+This directory demonstrates Spring transaction integration for blocking Spring Data Aerospike operations. The active
+Spring Data Aerospike version is configured in the root `pom.xml`; see the `Version Compatibility` section in the root
+README for the current target stack.
+
+== Requirements
+
+Aerospike transactions require Aerospike Server `8.0+` and a transaction-enabled namespace. Tests skip with a clear
+reason when the local Docker-backed cluster does not support transactions.
+
+== Guide
+
+:base_path: ../../../../../../..
+
+link:{base_path}/asciidoc/transactions.adoc[Transactions]

@@ -1,0 +1,39 @@
+[[guide-query-methods-and-custom-queries]]
+= Query Methods, Custom Queries, Projections and Pagination
+
+This guide points to demo applications that exercise the current Spring Data Aerospike repository query surface.
+The active Spring Data Aerospike version is configured in the root link:../pom.xml[`pom.xml`]; see the root
+link:../README.adoc[README] for the compatibility block.
+
+== What Is Covered
+
+The blocking demo covers:
+
+- Derived query methods such as `findByGenre`, `findByReleaseYearBetween`, `existsBy...`, `countBy...`, and `deleteBy...`.
+- Combined id-plus-bin query methods using `QueryParam`.
+- Declared DSL query methods using `@Query(expression = ..., indexToUse = ...)`.
+- Programmatic custom queries using `Query` and `Qualifier`.
+- DTO projections using repository methods and custom-query target classes.
+- Sorting, `Page`, `Slice`, and id pagination.
+
+The reactive demo covers the matching reactive repository query paths where supported by
+`ReactiveAerospikeRepository`.
+
+== Demo Applications
+
+:demo_path: ../examples/src/main/java/com/demo
+:reactive_demo_path: ../examples-reactive/src/main/java/com/demo/reactive
+:tests_path: ../examples/src/test/java/com/demo
+:reactive_tests_path: ../examples-reactive/src/test/java/com/demo/reactive
+
+- link:{demo_path}/querymethods[Blocking query methods demo]
+- link:{tests_path}/querymethods[Blocking query methods tests]
+- link:{reactive_demo_path}/querymethods[Reactive query methods demo]
+- link:{reactive_tests_path}/querymethods[Reactive query methods tests]
+
+== Notes
+
+The query demo enables scans because it includes declared DSL and custom query shapes in one compact Spring Boot
+application. In production code, keep scans disabled unless the application deliberately allows scan-style query shapes.
+Demos that combine id criteria with regular bin criteria use `QueryParam.of(...)` so Spring Data Aerospike can associate
+method arguments with the correct query part.

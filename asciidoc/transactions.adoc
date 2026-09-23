@@ -1,0 +1,31 @@
+[[guide-transactions]]
+= Transactions
+
+Spring Data Aerospike supports Spring transaction integration for Aerospike operations. The active Spring Data
+Aerospike version is configured in the root link:../pom.xml[`pom.xml`].
+
+== Requirements
+
+Aerospike transactions require Aerospike Server `8.0+` and a transaction-enabled namespace. The transaction tests in
+this repository check server support and skip with a clear reason when the local Docker-backed cluster does not support
+transactions.
+
+== What Is Covered
+
+- Blocking transaction management with `AerospikeTransactionManager`, `@EnableTransactionManagement`, and
+  `@Transactional`.
+- Reactive transaction management with `AerospikeReactiveTransactionManager` and `TransactionalOperator`.
+- Commit behavior for multiple repository/template writes.
+- Rollback behavior for duplicate inserts.
+
+== Demo Applications
+
+:demo_path: ../examples/src/main/java/com/demo
+:reactive_demo_path: ../examples-reactive/src/main/java/com/demo/reactive
+:tests_path: ../examples/src/test/java/com/demo
+:reactive_tests_path: ../examples-reactive/src/test/java/com/demo/reactive
+
+- link:{demo_path}/transactions[Blocking transactions demo]
+- link:{tests_path}/transactions[Blocking transactions tests]
+- link:{reactive_demo_path}/transactions[Reactive transactions demo]
+- link:{reactive_tests_path}/transactions[Reactive transactions tests]

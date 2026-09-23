@@ -1,0 +1,32 @@
+[[guide-template-operations]]
+= Template Operations
+
+This guide points to demo applications that use `AerospikeTemplate` and `ReactiveAerospikeTemplate` directly.
+The active Spring Data Aerospike version is configured in the root link:../pom.xml[`pom.xml`].
+
+== What Is Covered
+
+- Query, `exists`, and `count` with `Query` and `Qualifier`.
+- Target-class DTO projection from template query methods.
+- Batch reads and deletes by id.
+- Atomic numeric bin mutation with `add`.
+- String bin mutation with `prepend` and `append`.
+- Partial update with `update(document, fields)`.
+- Blocking `persist(document, WritePolicy)` for operation-specific write policy overrides.
+
+== Demo Applications
+
+:demo_path: ../examples/src/main/java/com/demo
+:reactive_demo_path: ../examples-reactive/src/main/java/com/demo/reactive
+:tests_path: ../examples/src/test/java/com/demo
+:reactive_tests_path: ../examples-reactive/src/test/java/com/demo/reactive
+
+- link:{demo_path}/templateops[Blocking template operations demo]
+- link:{tests_path}/templateops[Blocking template operations tests]
+- link:{reactive_demo_path}/templateops[Reactive template operations demo]
+- link:{reactive_tests_path}/templateops[Reactive template operations tests]
+
+== Notes
+
+The template query examples keep scans disabled and create the required secondary indexes on startup. This keeps the
+demo aligned with the default Spring Data Aerospike behavior where scans are disabled unless explicitly enabled.

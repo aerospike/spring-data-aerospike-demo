@@ -1,0 +1,24 @@
+[[tests-spring-boot-autoconfigure]]
+= Spring Boot Autoconfigure Tests
+
+This directory contains tests for the Spring Boot autoconfigured movie catalog demo. The tests cover both layers:
+
+* The module-local auto-configuration creates the Aerospike client, template, settings, and repository beans from
+  application properties.
+* The application-owned movie catalog API stores, reads, queries, and deletes movies through the REST controller,
+  service, repository, and Aerospike-backed persistence.
+
+The auto-configuration in this demo is intentionally module-local. In a production setup the same kind of class would
+usually live in a reusable starter dependency, while the application would keep only the movie catalog code and
+properties.
+
+== Prerequisites
+
+- JDK 17
+
+== Demo Application
+
+:base_path: ../../../../../../..
+:demo_path: src/main/java/com/demo
+
+To see demo application go to link:{base_path}/{demo_path}/springbootautoconfigure[Spring Boot Autoconfigure Demo].

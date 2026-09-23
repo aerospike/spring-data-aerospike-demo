@@ -1,0 +1,20 @@
+[[tests-mapping-metadata]]
+= Mapping Metadata Tests
+
+This directory contains tests for the Spring Data Aerospike mapping metadata demos.
+
+== Prerequisites
+
+- JDK 17
+
+== Guides
+
+:base_path: ../../../../../../..
+
+link:{base_path}/asciidoc/mapping-metadata.adoc[Mapping Metadata]
+
+== Demo Application
+
+:demo_path: examples/src/main/java/com/demo
+
+To see demo application go to link:{base_path}/{demo_path}/mappingmetadata[Mapping Metadata Demo].

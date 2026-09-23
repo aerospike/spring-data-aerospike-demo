@@ -1,0 +1,56 @@
+[[guide-mapping-metadata]]
+= Mapping Metadata
+
+Spring Data Aerospike stores type metadata so it can read records back into the right Java type. This guide points to
+demo applications that show how to disable, alias, or customize that metadata.
+
+== Class Metadata Bin
+
+Unlike the pure Java client, Spring Data Aerospike writes a class bin by default. The default class bin name is
+`@_class`. Some downstream components, mixed writer/reader stacks, buses, or serializers do not expect a type alias bin.
+
+Setting `spring.data.aerospike.classKey` to an empty string disables writing the class bin. This can be a valid
+interoperability workaround, but it is not free. Without metadata, polymorphic reads no longer work automatically. It
+may still work for simple Java objects when there are no superclasses or interfaces involved. If type metadata is
+disabled, Spring Data Aerospike may only be able to instantiate the declared type, which is not expected to work well if
+that type is abstract or an interface.
+
+In the vast majority of cases the better solution is to configure the conflicting component correctly, remove the class
+bin before external serialization, or use a renamed class bin if that fits the use case.
+
+== What Is Covered
+
+- Setting `spring.data.aerospike.classKey` to `""` to disable the class metadata bin.
+- Using `@TypeAlias` so metadata stores a stable alias instead of a Java class name.
+- Configuring a renamed type metadata bin with `AerospikeDataSettings`.
+- Registering symmetrical value-object converters and querying with the value-object type.
+
+== Why Customize Mapping Conversion
+
+Custom mapping conversion is useful when an application needs to:
+
+- Persist domain types Aerospike does not natively store well, especially composite IDs, custom value objects, map keys,
+  or legacy formats.
+- Make read and write representation symmetrical, for example `OrderId -> String` on write and `String -> OrderId` on
+  read.
+- Keep repository/query behavior consistent, because query parameters also pass through
+  `MappingAerospikeConverter.toWritableValue(...)`.
+- Handle advanced whole-record conversion with `Converter<MyEntity, AerospikeWriteData>` and
+  `Converter<AerospikeReadData, MyEntity>`.
+
+The mapping metadata demo registers a `MovieCode <-> String` converter and queries by `MovieCode` to demonstrate the
+first three points. The advanced whole-record converter shape is demonstrated by
+link:../examples/src/main/java/com/demo/customconverters/converter/ArticleDocumentConverters.java[`ArticleDocumentConverters`]
+in the custom converters demo.
+
+== Demo Applications
+
+:demo_path: ../examples/src/main/java/com/demo
+:tests_path: ../examples/src/test/java/com/demo
+:reactive_demo_path: ../examples-reactive/src/main/java/com/demo/reactive
+:reactive_tests_path: ../examples-reactive/src/test/java/com/demo/reactive
+
+- link:{demo_path}/mappingmetadata[Mapping metadata demo]
+- link:{tests_path}/mappingmetadata[Mapping metadata tests]
+- link:{reactive_demo_path}/mappingmetadata[Reactive mapping metadata demo]
+- link:{reactive_tests_path}/mappingmetadata[Reactive mapping metadata tests]

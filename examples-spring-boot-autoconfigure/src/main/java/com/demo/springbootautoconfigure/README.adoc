@@ -1,0 +1,55 @@
+[[demo-spring-boot-autoconfigure]]
+= Spring Boot Autoconfigure Demo
+
+This directory contains a small movie catalog Spring Boot application backed by Spring Data Aerospike. It demonstrates
+the application-facing experience of using `application.properties`, a regular `@SpringBootApplication`, a service, and
+a REST controller while a module-local auto-configuration supplies the Aerospike infrastructure.
+
+The module-local `SpringDataAerospikeDemoAutoConfiguration` plays the role of code that would normally live in a
+reusable starter dependency. It is registered through Spring Boot's `AutoConfiguration.imports` metadata and explicitly
+enables the demo repository and mapping package. The application itself does not declare an `AerospikeConfiguration`
+class or `@EnableAerospikeRepositories`.
+
+This means the demo intentionally shows both sides:
+
+* Application code: movie catalog HTTP API, service, repository, document, and `application.properties`.
+* Reusable auto-configuration code: Aerospike client, template, mapping package, and repository infrastructure setup.
+
+== Prerequisites
+
+- JDK 17
+- Docker installed and running (optional)
+
+== Movie Catalog API
+
+The demo exposes a compact movie catalog API:
+
+[source,bash]
+----
+curl -X POST -H 'Content-Type: application/json' \
+  -d '{ "id": "movie-1", "title": "The Iron Giant", "director": "Brad Bird", "releaseYear": 1999 }' \
+  localhost:8080/demo/movies
+
+curl localhost:8080/demo/movies/movie-1
+curl 'localhost:8080/demo/movies?director=Brad%20Bird'
+curl -X DELETE localhost:8080/demo/movies/movie-1
+----
+
+The director lookup uses an Aerospike secondary index, so the query remains compatible with the default scans-disabled
+Spring Data Aerospike behavior.
+
+== Key Files
+
+- `SpringBootAutoconfigureAerospikeDemoApplication` is a regular `@SpringBootApplication`.
+- `MovieCatalogController` and `MovieCatalogService` are ordinary application-owned code.
+- `AutoconfiguredMovieDocument` is the mapped Aerospike document.
+- `AutoconfiguredMovieRepository` exposes CRUD plus an indexed director query.
+- `SpringDataAerospikeDemoAutoConfiguration` is the module-local Spring Boot auto-configuration.
+- `application.properties` supplies `spring.aerospike.hosts` and `spring.data.aerospike.namespace`.
+
+== Tests
+
+:base_path: ../../../../../../..
+:tests_path: src/test/java/com/demo
+
+To see tests go to link:{base_path}/{tests_path}/springbootautoconfigure[Spring Boot autoconfigure tests].

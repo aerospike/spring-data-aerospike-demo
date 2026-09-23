@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.5</version>
+        <version>4.1.1</version>
         <relativePath/>
     </parent>
 
@@ -18,21 +18,22 @@
     <description>Demo project for Spring Data Aerospike</description>
     <modules>
         <module>examples</module>
+        <module>examples-spring-boot-autoconfigure</module>
         <module>examples-reactive</module>
     </modules>
 
     <properties>
         <java.version>17</java.version>
-        <spring-cloud-dependencies.version>2025.1.1</spring-cloud-dependencies.version>
-        <spring-data-aerospike.version>6.0.0</spring-data-aerospike.version>
-        <reactor-client.version>10.0.0</reactor-client.version>
-        <embedded-aerospike.version>3.1.20</embedded-aerospike.version>
+        <spring-cloud-starter-bootstrap.version>5.0.3</spring-cloud-starter-bootstrap.version>
+        <spring-data-aerospike.version>6.3.0</spring-data-aerospike.version>
+        <reactor-client.version>10.5.0</reactor-client.version>
+        <embedded-aerospike.version>4.0.4</embedded-aerospike.version>
         <testcontainers>2.0.3</testcontainers>
-        <spring-boot-test.version>4.0.5</spring-boot-test.version>
-        <spring-boot-starter-web.version>4.0.5</spring-boot-starter-web.version>
+        <spring-boot-test.version>4.1.1</spring-boot-test.version>
+        <spring-boot-starter-web.version>4.1.1</spring-boot-starter-web.version>
         <rest-assured.version>6.0.0</rest-assured.version>
-        <reactor-test>3.8.4</reactor-test>
-        <netty.version>4.2.10.Final</netty.version>
+        <reactor-test>3.8.7</reactor-test>
+        <netty.version>4.2.18.Final</netty.version>
     </properties>
 
     <dependencyManagement>
@@ -49,10 +50,8 @@
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud-dependencies.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <artifactId>spring-cloud-starter-bootstrap</artifactId>
+                <version>${spring-cloud-starter-bootstrap.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.playtika.testcontainers</groupId>
